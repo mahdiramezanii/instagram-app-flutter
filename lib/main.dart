@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget{
     
 
     return MaterialApp(
-      home: Scaffold(body: Text("insta")),
+      home: Scaffold(body: Column(children: [
+        Text("mahdiramazani")
+      ],)),
     );
   }
 
