@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget{
     
 
     return MaterialApp(
-      home: Scaffold(body: Text("instagram")),
+      home: Scaffold(body: Text("insta")),
     );
   }
 
