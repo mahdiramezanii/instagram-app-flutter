@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget{
 
     return MaterialApp(
       home: Scaffold(body: Column(children: [
-        Text("mahdi")
+        Text("mahdi"),
+        Icon(Icons.cabin)
       ],)),
     );
   }
