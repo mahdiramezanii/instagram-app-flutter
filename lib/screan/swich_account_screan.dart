@@ -20,53 +20,55 @@ class SwichAccountScrean extends StatelessWidget {
                   ),
                 ),
                 child: Center(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 7.0,
-                      sigmaY: 7.0,
-                    ),
-                    child: Container(
-                      width: 340,
-                      height: 352,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: LinearGradient(
-                            colors: [
-                              HexColor("#FFFFFF").withOpacity(0.9),
-                              HexColor("#1C1F2E").withOpacity(0.5),
-                            ],
-                            begin: Alignment.topLeft,
-                            end: AlignmentDirectional.bottomEnd),
+                  child: ClipRect(
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(
+                        sigmaX: 50.0,
+                        sigmaY: 50.0,
                       ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              width: 129,
-                              height: 129,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.black),
-                            ),
-                            Text(
-                              "Mahdi ramezani",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.red),
-                              onPressed: () {},
-                              child: Text(
-                                "Coniform",
+                      child: Container(
+                        width: 340,
+                        height: 352,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: LinearGradient(
+                              colors: [
+                                HexColor("#FFFFFF").withOpacity(0.5),
+                                HexColor("#1C1F2E").withOpacity(0.2),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: AlignmentDirectional.bottomEnd),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                width: 129,
+                                height: 129,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.black),
+                              ),
+                              Text(
+                                "Mahdi ramezani",
                                 style: TextStyle(color: Colors.white),
                               ),
-                            ),
-                            Text(
-                              "switch account",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.red),
+                                onPressed: () {},
+                                child: Text(
+                                  "Coniform",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                              Text(
+                                "switch account",
+                                style: TextStyle(color: Colors.white),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
