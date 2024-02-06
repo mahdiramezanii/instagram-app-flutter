@@ -1,6 +1,6 @@
 {
-    "name": "instagram_app",
-    "short_name": "instagram_app",
+    "name": "instagram",
+    "short_name": "instagram",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
