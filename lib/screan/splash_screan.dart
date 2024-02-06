@@ -15,18 +15,14 @@ class SplashScrean extends StatelessWidget {
           body: SafeArea(
             child: Stack(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 350),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        width: double.infinity,
-                      ),
-                      Image(
-                        image: AssetImage("assets/images/Startlogo.png"),
-                        width: 200,
-                      ),
-                    ],
+                Center(
+                  child: SizedBox(
+                    width: 155,
+                    height: 77,
+                    child: Image(
+                      image: AssetImage("assets/images/Startlogo.png"),
+                      width: 200,
+                    ),
                   ),
                 ),
                 Padding(
@@ -34,7 +30,9 @@ class SplashScrean extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(width: double.infinity,),
+                      SizedBox(
+                        width: double.infinity,
+                      ),
                       Text(
                         "from",
                         style: TextStyle(color: Colors.grey),
