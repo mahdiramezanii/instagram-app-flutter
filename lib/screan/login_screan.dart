@@ -8,9 +8,20 @@ class LoginScrean extends StatelessWidget {
       backgroundColor: Colors.purple,
       body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 70),
-            child: Image(image: AssetImage("assets/images/rocket.png")),
+          Positioned(
+            top: 55,
+            child: Expanded(
+              child: Container(
+                width: 428,
+                height: 397,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [Colors.black,Colors.white])
+                ),
+                child: Image(
+                  image: AssetImage("assets/images/rocket.png"),
+                ),
+              ),
+            ),
           ),
           Column(
             children: [
@@ -22,7 +33,7 @@ class LoginScrean extends StatelessWidget {
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: Colors.grey,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30),
                         topRight: Radius.circular(30)),

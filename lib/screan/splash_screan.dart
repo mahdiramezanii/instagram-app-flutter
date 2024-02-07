@@ -17,7 +17,7 @@ class _SplashScreanState extends State<SplashScrean> {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context){
 
-          return SwichAccountScrean();
+          return LoginScrean();
         })
       );
     });

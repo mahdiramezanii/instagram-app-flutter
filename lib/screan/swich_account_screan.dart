@@ -20,7 +20,7 @@ class SwichAccountScrean extends StatelessWidget {
                   ),
                 ),
                 child: Center(
-                  child: ClipRect(
+                  child: ClipRRect(
                     child: BackdropFilter(
                       filter: ImageFilter.blur(
                         sigmaX: 50.0,
