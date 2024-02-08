@@ -55,8 +55,7 @@ class SwichAccountScrean extends StatelessWidget {
                                 style: TextStyle(color: Colors.white),
                               ),
                               ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.red),
+                                style: Theme.of(context).elevatedButtonTheme.style,
                                 onPressed: () {},
                                 child: Text(
                                   "Coniform",
