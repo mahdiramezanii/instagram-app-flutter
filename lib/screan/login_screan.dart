@@ -65,22 +65,27 @@ class LoginScrean extends StatelessWidget {
                       )
                     ],
                   ),
-                  TextField(
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                    // textAlign: TextAlign.right,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      // textAlign: TextAlign.right,
                     
-                    decoration: InputDecoration(
-                      labelText: " Email ",
-                      hintText: "ایمیل خود را وارد کنید",
-                      hintStyle: TextStyle(color: Colors.white, fontSize: 15),
-                      labelStyle: TextStyle(color: Colors.white, fontSize: 20),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.white, width: 3),
-                      ),
-                      focusedBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        labelText: " Email ",
+                        hintText: "ایمیل خود را وارد کنید",
+                        hintStyle: TextStyle(color: Colors.white, fontSize: 15),
+                        labelStyle: TextStyle(color: Colors.white, fontSize: 20),
+                        enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.amber)),
+                          borderSide: BorderSide(color: Colors.white, width: 3),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Colors.amber)),
+                      ),
                     ),
                   ),
                 ],
