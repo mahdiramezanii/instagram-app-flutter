@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:instagram/screan/home_screan.dart";
 
 class LoginScrean extends StatefulWidget {
   @override
@@ -97,10 +98,10 @@ class _LoginScreanState extends State<LoginScrean> {
                         focusNode: negahban1,
                         style: TextStyle(color: Colors.white),
                         // textAlign: TextAlign.right,
-                
+
                         decoration: InputDecoration(
-                          contentPadding:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
                           labelText: " Email ",
                           hintText: "Enter Your Email",
                           hintStyle: TextStyle(color: Colors.white),
@@ -111,7 +112,8 @@ class _LoginScreanState extends State<LoginScrean> {
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: Colors.white, width: 3),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 3),
                           ),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
@@ -148,11 +150,12 @@ class _LoginScreanState extends State<LoginScrean> {
                                   ? Color(0xffF35383)
                                   : Colors.white),
                           hintStyle: TextStyle(color: Colors.white),
-                          contentPadding:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: Colors.white, width: 3),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 3),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
@@ -174,7 +177,15 @@ class _LoginScreanState extends State<LoginScrean> {
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return HomeScrean();
+                              },
+                            ),
+                          );
+                        },
                         child: Text(
                           "sign in",
                           style: TextStyle(color: Colors.white, fontSize: 18),
