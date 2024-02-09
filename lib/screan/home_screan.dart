@@ -7,49 +7,104 @@ class HomeScrean extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color(0xff1C1F2E),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: _getAppBar(),
-        body: Padding(
-          padding: const EdgeInsets.all(10),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      _getYourStory(
-                          text: "Your Story", image: "assets/images/plus.png"),
-                      _getYourStory(
-                          text: "Your Story", image: "assets/images/2.png"),
-                      _getYourStory(
-                          text: "Your Story", image: "assets/images/3.png"),
-                      _getYourStory(
-                          text: "Your Story", image: "assets/images/4.png"),
-                      _getYourStory(
-                          text: "MAhdi_bahdjhwhgjf",
-                          image: "assets/images/2.png"),
-                      _getYourStory(
-                          text: "Your Story", image: "assets/images/plus.png"),
-                      _getYourStory(
-                          text: "Your Story", image: "assets/images/plus.png"),
-                      _getYourStory(
-                          text: "Your Story", image: "assets/images/plus.png"),
-                    ],
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: _getAppBar(),
+          body: Padding(
+            padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        _getYourStory(
+                            text: "Your Story",
+                            image: "assets/images/plus.png"),
+                        _getYourStory(
+                            text: "Your Story", image: "assets/images/2.png"),
+                        _getYourStory(
+                            text: "Your Story", image: "assets/images/3.png"),
+                        _getYourStory(
+                            text: "Your Story", image: "assets/images/4.png"),
+                        _getYourStory(
+                            text: "MAhdi_bahdjhwhgjf",
+                            image: "assets/images/2.png"),
+                        _getYourStory(
+                            text: "Your Story",
+                            image: "assets/images/plus.png"),
+                        _getYourStory(
+                            text: "Your Story",
+                            image: "assets/images/plus.png"),
+                        _getYourStory(
+                            text: "Your Story",
+                            image: "assets/images/plus.png"),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                _getPost(),
-                SizedBox(height: 30,),
-                _getPost(),
-                SizedBox(height: 30,),
-                _getPost(),
-              ],
+                  SizedBox(
+                    height: 15,
+                  ),
+                  _getPost(),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  _getPost(),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  _getPost(),
+                ],
+              ),
             ),
+          ),
+          bottomNavigationBar: Container(
+            width: double.infinity,
+            height: 83,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(39, 43, 64, 1),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(15)),
+            ),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image(
+                    image: AssetImage("assets/images/b1.png"),
+                  ),
+                  Image(
+                    image: AssetImage("assets/images/b2.png"),
+                  ),
+                  Image(
+                    image: AssetImage("assets/images/b3.png"),
+                  ),
+                  Image(
+                    image: AssetImage("assets/images/b4.png"),
+                  ),
+                  Container(
+                    width: 26,
+                    height: 26,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        color: Colors.white),
+                    child: Padding(
+                      padding: const EdgeInsets.all(1),
+                      child: Container(
+                        width: 22,
+                        height: 22,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Image(
+                          image: AssetImage("assets/images/b5.png"),
+                        ),
+                      ),
+                    ),
+                  )
+                ]),
           ),
         ),
       ),
