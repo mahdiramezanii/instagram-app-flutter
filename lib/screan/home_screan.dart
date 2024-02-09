@@ -1,3 +1,5 @@
+import "dart:ui";
+
 import "package:flutter/material.dart";
 
 class HomeScrean extends StatelessWidget {
@@ -8,36 +10,47 @@ class HomeScrean extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: _getAppBar(),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    _getYourStory(
-                        text: "Your Story", image: "assets/images/plus.png"),
-                    _getYourStory(
-                        text: "Your Story", image: "assets/images/2.png"),
-                    _getYourStory(
-                        text: "Your Story", image: "assets/images/3.png"),
-                    _getYourStory(
-                        text: "Your Story", image: "assets/images/4.png"),
-                    _getYourStory(
-                        text: "MAhdi_bahdjhwhgjf",
-                        image: "assets/images/2.png"),
-                    _getYourStory(
-                        text: "Your Story", image: "assets/images/plus.png"),
-                    _getYourStory(
-                        text: "Your Story", image: "assets/images/plus.png"),
-                    _getYourStory(
-                        text: "Your Story", image: "assets/images/plus.png"),
-                  ],
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      _getYourStory(
+                          text: "Your Story", image: "assets/images/plus.png"),
+                      _getYourStory(
+                          text: "Your Story", image: "assets/images/2.png"),
+                      _getYourStory(
+                          text: "Your Story", image: "assets/images/3.png"),
+                      _getYourStory(
+                          text: "Your Story", image: "assets/images/4.png"),
+                      _getYourStory(
+                          text: "MAhdi_bahdjhwhgjf",
+                          image: "assets/images/2.png"),
+                      _getYourStory(
+                          text: "Your Story", image: "assets/images/plus.png"),
+                      _getYourStory(
+                          text: "Your Story", image: "assets/images/plus.png"),
+                      _getYourStory(
+                          text: "Your Story", image: "assets/images/plus.png"),
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
+                SizedBox(
+                  height: 15,
+                ),
+                _getPost(),
+                SizedBox(height: 30,),
+                _getPost(),
+                SizedBox(height: 30,),
+                _getPost(),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -111,6 +124,161 @@ class HomeScrean extends StatelessWidget {
                   fontSize: 10,
                 ),
               ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _getPost() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 3),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: Color(0xffF35383),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(2),
+                  child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Color(0xff1C1F2E),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Image(
+                      image: AssetImage("assets/images/5.png"),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 12,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "amirahmadadibii",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    "امیراحمد برنامه‌نویس موبایل",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.end,
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: 150,
+              ),
+              Icon(
+                Icons.more_vert,
+                color: Colors.white,
+                size: 30,
+              )
+            ],
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          SizedBox(
+            height: 430,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Positioned(
+                  top: 0,
+                  child: Container(
+                    height: 394,
+                    width: 394,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                          image: AssetImage("assets/images/p1.png"),
+                          fit: BoxFit.cover),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: Icon(
+                    Icons.play_circle_fill,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  child: ClipRRect(
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(
+                        sigmaX: 50.0,
+                        sigmaY: 50.0,
+                      ),
+                      child: Container(
+                        height: 46,
+                        width: 340,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color.fromRGBO(255, 255, 255, 0.5),
+                              Color.fromRGBO(255, 255, 255, 0.2),
+                            ],
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Row(
+                              children: [
+                                Image(
+                                  image: AssetImage("assets/images/heart.png"),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text("2.6 K",
+                                    style: TextStyle(color: Colors.white)),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Image(
+                                  image:
+                                      AssetImage("assets/images/comment.png"),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text("2.6 K",
+                                    style: TextStyle(color: Colors.white)),
+                              ],
+                            ),
+                            Image(
+                              image: AssetImage("assets/images/sh.png"),
+                            ),
+                            Image(image: AssetImage("assets/images/save.png"))
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           )
         ],
