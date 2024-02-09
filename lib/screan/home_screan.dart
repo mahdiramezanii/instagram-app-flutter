@@ -45,18 +45,21 @@ class HomeScrean extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  _getPost(),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  _getPost(),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  _getPost(),
+                  ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [ 
+                          SizedBox(
+                            height: 30,
+                          ),
+                          getPostLisr()
+                        ],
+                      );
+                    },
+                  )
                 ],
               ),
             ),
@@ -109,6 +112,10 @@ class HomeScrean extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget getPostLisr() {
+    return _getPost();
   }
 
   PreferredSizeWidget _getAppBar() {
