@@ -17,11 +17,11 @@ class Application extends StatelessWidget {
       theme: ThemeData(
         
         elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+          style: ElevatedButton.styleFrom(backgroundColor: Color(0xffF35383)),
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScrean(),
+      home: LoginScrean(),
     );
   }
 }
