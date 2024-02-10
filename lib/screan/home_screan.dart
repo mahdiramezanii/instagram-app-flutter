@@ -1,3 +1,4 @@
+import "dart:ffi";
 import "dart:ui";
 
 import "package:flutter/material.dart";
@@ -17,45 +18,33 @@ class HomeScrean extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        _getYourStory(
-                            text: "Your Story",
-                            image: "assets/images/plus.png"),
-                        _getYourStory(
-                            text: "Your Story", image: "assets/images/2.png"),
-                        _getYourStory(
-                            text: "Your Story", image: "assets/images/3.png"),
-                        _getYourStory(
-                            text: "Your Story", image: "assets/images/4.png"),
-                        _getYourStory(
-                            text: "MAhdi_bahdjhwhgjf",
-                            image: "assets/images/2.png"),
-                        _getYourStory(
-                            text: "Your Story",
-                            image: "assets/images/plus.png"),
-                        _getYourStory(
-                            text: "Your Story",
-                            image: "assets/images/plus.png"),
-                        _getYourStory(
-                            text: "Your Story",
-                            image: "assets/images/plus.png"),
-                      ],
-                    ),
-                  ),
+                  Row(children: [
+                    Expanded(
+                      child: Container(
+                        height: 100,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 10,
+                          itemBuilder: (context, index) {
+                            return _getYourStory(
+                                text: "Your Story",
+                                image: "assets/images/plus.png");
+                          },
+                        ),
+                      ),
+                    )
+                  ]),
                   ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: 10,
                     itemBuilder: (BuildContext context, int index) {
                       return Column(
-                        children: [ 
+                        children: [
                           SizedBox(
                             height: 30,
                           ),
-                          getPostLisr()
+                          _getPost(context)
                         ],
                       );
                     },
@@ -112,10 +101,6 @@ class HomeScrean extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Widget getPostLisr() {
-    return _getPost();
   }
 
   PreferredSizeWidget _getAppBar() {
@@ -193,7 +178,7 @@ class HomeScrean extends StatelessWidget {
     );
   }
 
-  Widget _getPost() {
+  Widget _getPost(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 3),
       child: Column(
@@ -330,8 +315,20 @@ class HomeScrean extends StatelessWidget {
                                     style: TextStyle(color: Colors.white)),
                               ],
                             ),
-                            Image(
-                              image: AssetImage("assets/images/sh.png"),
+                            GestureDetector(
+                              onTap: () {
+                                showModalBottomSheet(
+                                  barrierColor: Colors.transparent,
+                                  backgroundColor: Colors.transparent,
+                                  context: context,
+                                  builder: (context) {
+                                    return _buttonSheet();
+                                  },
+                                );
+                              },
+                              child: Image(
+                                image: AssetImage("assets/images/sh.png"),
+                              ),
                             ),
                             Image(image: AssetImage("assets/images/save.png"))
                           ],
@@ -344,6 +341,77 @@ class HomeScrean extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget _buttonSheet() {
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+        child: Container(
+          width: 394,
+          height: 394,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(15),
+            ),
+            gradient: LinearGradient(
+              colors: [
+                Color.fromRGBO(255, 255, 255, 0.5),
+                Color.fromRGBO(255, 255, 255, 0.2),
+              ],
+            ),
+          ),
+          child: Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 40,
+            ),
+            width: 350,
+            height: 557,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Image(
+                  image: AssetImage("assets/images/line.png"),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Share",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Icon(Icons.inbox_rounded),
+                  ],
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                      filled: true,
+                      fillColor: const Color.fromRGBO(255, 255, 255, 0.4),
+                      contentPadding: EdgeInsets.all(2),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                        size: 50,
+                      ),
+                      hintStyle: TextStyle(color: Colors.white),
+                      hintText: "Serach...",
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(13),
+                        borderSide:
+                            BorderSide(width: 3, style: BorderStyle.none),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(13),
+                        borderSide: BorderSide(style: BorderStyle.none),
+                      )),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
