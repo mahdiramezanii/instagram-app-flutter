@@ -397,7 +397,7 @@ class HomeScrean extends StatelessWidget {
                         size: 50,
                       ),
                       hintStyle: TextStyle(color: Colors.white),
-                      hintText: "Serach...",
+                      hintText: "Serach....",
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(13),
                         borderSide:
