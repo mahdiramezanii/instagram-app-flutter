@@ -388,26 +388,41 @@ class HomeScrean extends StatelessWidget {
                 ),
                 TextField(
                   decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color.fromRGBO(255, 255, 255, 0.4),
-                      contentPadding: EdgeInsets.all(2),
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Colors.white,
-                        size: 50,
-                      ),
-                      hintStyle: TextStyle(color: Colors.white),
-                      hintText: "Serach....",
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(13),
-                        borderSide:
-                            BorderSide(width: 3, style: BorderStyle.none),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(13),
-                        borderSide: BorderSide(style: BorderStyle.none),
-                      )),
+                    filled: true,
+                    fillColor: const Color.fromRGBO(255, 255, 255, 0.4),
+                    contentPadding: EdgeInsets.all(2),
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: Colors.white,
+                      size: 50,
+                    ),
+                    hintStyle: TextStyle(color: Colors.white),
+                    hintText: "Serach....",
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(13),
+                      borderSide: BorderSide(width: 3, style: BorderStyle.none),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(13),
+                      borderSide: BorderSide(style: BorderStyle.none),
+                    ),
+                  ),
                 ),
+                SizedBox(
+                  height: 270,
+                  child: GridView.builder(
+                    itemCount: 10,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisSpacing: 1,
+                        mainAxisSpacing: 2,
+                        crossAxisCount: 3),
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        color: Colors.cyan,
+                      );
+                    },
+                  ),
+                )
               ],
             ),
           ),
