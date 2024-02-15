@@ -347,6 +347,7 @@ class HomeScrean extends StatelessWidget {
 
   Widget _buttonSheet() {
     return ClipRRect(
+      
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
         child: Container(
@@ -372,6 +373,7 @@ class HomeScrean extends StatelessWidget {
             height: 557,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Image(
                   image: AssetImage("assets/images/line.png"),
@@ -411,10 +413,10 @@ class HomeScrean extends StatelessWidget {
                 SizedBox(
                   height: 270,
                   child: GridView.builder(
-                    itemCount: 10,
+                    itemCount: 30,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisSpacing: 1,
-                        mainAxisSpacing: 2,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 8,
                         crossAxisCount: 3),
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
