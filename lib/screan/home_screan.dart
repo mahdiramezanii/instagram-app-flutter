@@ -322,7 +322,14 @@ class HomeScrean extends StatelessWidget {
                                   backgroundColor: Colors.transparent,
                                   context: context,
                                   builder: (context) {
-                                    return _buttonSheet();
+                                    return DraggableScrollableSheet(
+                                        initialChildSize: 0.8,
+                                        minChildSize: 0.8,
+                                        maxChildSize: 1,
+                                        builder: (context,
+                                            ScrollController controller) {
+                                          return _buttonSheet(controller);
+                                        });
                                   },
                                 );
                               },
@@ -345,9 +352,8 @@ class HomeScrean extends StatelessWidget {
     );
   }
 
-  Widget _buttonSheet() {
+  Widget _buttonSheet(ScrollController controller) {
     return ClipRRect(
-      
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
         child: Container(
@@ -413,6 +419,7 @@ class HomeScrean extends StatelessWidget {
                 SizedBox(
                   height: 270,
                   child: GridView.builder(
+                    controller: controller,
                     itemCount: 30,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisSpacing: 10,
