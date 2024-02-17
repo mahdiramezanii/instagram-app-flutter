@@ -360,9 +360,9 @@ class HomeScrean extends StatelessWidget {
                                   context: context,
                                   builder: (context) {
                                     return DraggableScrollableSheet(
-                                        initialChildSize: 0.8,
-                                        minChildSize: 0.8,
-                                        maxChildSize: 1,
+                                        initialChildSize: 0.4,
+                                        minChildSize: 0.2,
+                                        maxChildSize: 0.8,
                                         builder: (context,
                                             ScrollController controller) {
                                           return _buttonSheet(controller);
@@ -453,22 +453,39 @@ class HomeScrean extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 270,
-                  child: GridView.builder(
-                    controller: controller,
-                    itemCount: 30,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 8,
-                        crossAxisCount: 3),
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        color: Colors.cyan,
-                      );
-                    },
-                  ),
+                SizedBox(height: 20,),
+                Expanded(
+                    child: CustomScrollView(
+                  controller: controller,
+                  slivers: [
+                    SliverGrid(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return Container(
+                            color: Colors.cyan,
+                          );
+                        }),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 20,
+                            mainAxisSpacing: 20))
+                  ],
                 )
+
+// GridView.builder(
+//                     controller: controller,
+//                     itemCount: 30,
+//                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//                         crossAxisSpacing: 10,
+//                         mainAxisSpacing: 8,
+//                         crossAxisCount: 3),
+//                     itemBuilder: (BuildContext context, int index) {
+//                       return Container(
+//                         color: Colors.cyan,
+//                       );
+//                     },
+//                   ),
+
+                    )
               ],
             ),
           ),
