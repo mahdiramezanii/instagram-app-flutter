@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/screan/home_screan.dart';
 import 'package:instagram/screan/login_screan.dart';
-import 'package:instagram/screan/splash_screan.dart';
-import 'package:instagram/screan/swich_account_screan.dart';
+
 
 void main() {
   runApp(Application());

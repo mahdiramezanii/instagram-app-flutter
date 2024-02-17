@@ -14,43 +14,79 @@ class HomeScrean extends StatelessWidget {
           appBar: _getAppBar(),
           body: Padding(
             padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(children: [
-                    Expanded(
-                      child: Container(
-                        height: 100,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 10,
-                          itemBuilder: (context, index) {
-                            return _getYourStory(
-                                text: "Your Story",
-                                image: "assets/images/plus.png");
-                          },
-                        ),
-                      ),
-                    )
-                  ]),
-                  ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Column(
-                        children: [
-                          SizedBox(
-                            height: 30,
+            child: CustomScrollView(
+              //  Column(
+              //   children: [
+              //     Row(
+              //       children: [
+              //         Expanded(
+              //           child: Container(
+              //             height: 100,
+              //             child: ListView.builder(
+              //               scrollDirection: Axis.horizontal,
+              //               itemCount: 10,
+              //               itemBuilder: (context, index) {
+              //                 return _getYourStory(
+              //                     text: "Your Story",
+              //                     image: "assets/images/plus.png");
+              //               },
+              //             ),
+              //           ),
+              //         )
+              //       ],
+              //     ),
+              //     ListView.builder(
+              //       physics: NeverScrollableScrollPhysics(),
+              //       shrinkWrap: true,
+              //       itemCount: 10,
+              //       itemBuilder: (BuildContext context, int index) {
+              //         return Column(
+              //           children: [
+              //             SizedBox(
+              //               height: 30,
+              //             ),
+              //             _getPost(context)
+              //           ],
+              //         );
+              //       },
+              //     )
+              //   ],
+              // ),
+
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 100,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 10,
+                            itemBuilder: (context, index) {
+                              return _getYourStory(
+                                  text: "Your Story",
+                                  image: "assets/images/plus.png");
+                            },
                           ),
-                          _getPost(context)
-                        ],
-                      );
-                    },
-                  )
-                ],
-              ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate((context, index) {
+                    return Column(
+                      children: [
+                        SizedBox(
+                          height: 30,
+                        ),
+                        _getPost(context)
+                      ],
+                    );
+                  }, childCount: 10),
+                ),
+              ],
             ),
           ),
           bottomNavigationBar: Container(
@@ -318,6 +354,7 @@ class HomeScrean extends StatelessWidget {
                             GestureDetector(
                               onTap: () {
                                 showModalBottomSheet(
+                                  isScrollControlled: true,
                                   barrierColor: Colors.transparent,
                                   backgroundColor: Colors.transparent,
                                   context: context,
@@ -367,7 +404,7 @@ class HomeScrean extends StatelessWidget {
             gradient: LinearGradient(
               colors: [
                 Color.fromRGBO(255, 255, 255, 0.5),
-                Color.fromRGBO(255, 255, 255, 0.3),
+                Color.fromRGBO(255, 255, 255, 0.2),
               ],
             ),
           ),
