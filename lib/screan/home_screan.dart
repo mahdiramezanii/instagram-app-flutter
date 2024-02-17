@@ -367,7 +367,7 @@ class HomeScrean extends StatelessWidget {
             gradient: LinearGradient(
               colors: [
                 Color.fromRGBO(255, 255, 255, 0.5),
-                Color.fromRGBO(255, 255, 255, 0.2),
+                Color.fromRGBO(255, 255, 255, 0.3),
               ],
             ),
           ),
