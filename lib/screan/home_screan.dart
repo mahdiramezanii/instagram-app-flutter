@@ -426,11 +426,12 @@ class HomeScrean extends StatelessWidget {
                   children: [
                     Text(
                       "Share",
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),
                     ),
-                    Icon(Icons.inbox_rounded),
+                    Icon(Icons.inbox_rounded,size: 30,color: Colors.white,),
                   ],
                 ),
+                SizedBox(height: 10,),
                 TextField(
                   decoration: InputDecoration(
                     filled: true,
@@ -453,7 +454,9 @@ class HomeScrean extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 Expanded(
                     child: CustomScrollView(
                   controller: controller,
