@@ -1,11 +1,14 @@
-import "dart:ffi";
 import "dart:ui";
 
 import "package:flutter/material.dart";
+import "package:instagram/controller/data.dart";
+import "package:instagram/controller/models.dart";
 
 class HomeScrean extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    List<PostData> post_data = get_data_post();
+
     return Container(
       color: Color(0xff1C1F2E),
       child: SafeArea(
@@ -15,44 +18,6 @@ class HomeScrean extends StatelessWidget {
           body: Padding(
             padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
             child: CustomScrollView(
-              //  Column(
-              //   children: [
-              //     Row(
-              //       children: [
-              //         Expanded(
-              //           child: Container(
-              //             height: 100,
-              //             child: ListView.builder(
-              //               scrollDirection: Axis.horizontal,
-              //               itemCount: 10,
-              //               itemBuilder: (context, index) {
-              //                 return _getYourStory(
-              //                     text: "Your Story",
-              //                     image: "assets/images/plus.png");
-              //               },
-              //             ),
-              //           ),
-              //         )
-              //       ],
-              //     ),
-              //     ListView.builder(
-              //       physics: NeverScrollableScrollPhysics(),
-              //       shrinkWrap: true,
-              //       itemCount: 10,
-              //       itemBuilder: (BuildContext context, int index) {
-              //         return Column(
-              //           children: [
-              //             SizedBox(
-              //               height: 30,
-              //             ),
-              //             _getPost(context)
-              //           ],
-              //         );
-              //       },
-              //     )
-              //   ],
-              // ),
-
               slivers: [
                 SliverToBoxAdapter(
                   child: Row(
@@ -81,10 +46,16 @@ class HomeScrean extends StatelessWidget {
                         SizedBox(
                           height: 30,
                         ),
-                        _getPost(context)
+                        _getPost(context,
+                            username: post_data[index].username!,
+                            comment: post_data[index].comment!,
+                            full_name: post_data[index].full_name!,
+                            like: post_data[index].like!,
+                            post: post_data[index].post_image!,
+                            user_image: post_data[index].user_image!)
                       ],
                     );
-                  }, childCount: 10),
+                  }, childCount: post_data.length),
                 ),
               ],
             ),
@@ -214,7 +185,15 @@ class HomeScrean extends StatelessWidget {
     );
   }
 
-  Widget _getPost(BuildContext context) {
+  Widget _getPost(
+    BuildContext context, {
+    required String post,
+    required String user_image,
+    required String full_name,
+    required String username,
+    required int comment,
+    required int like,
+  }) {
     return Padding(
       padding: const EdgeInsets.only(left: 3),
       child: Column(
@@ -238,7 +217,7 @@ class HomeScrean extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Image(
-                      image: AssetImage("assets/images/5.png"),
+                      image: AssetImage(user_image),
                     ),
                   ),
                 ),
@@ -250,11 +229,11 @@ class HomeScrean extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "amirahmadadibii",
+                    "$username",
                     style: TextStyle(color: Colors.white),
                   ),
                   Text(
-                    "امیراحمد برنامه‌نویس موبایل",
+                    "$full_name",
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -289,8 +268,7 @@ class HomeScrean extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
-                          image: AssetImage("assets/images/p1.png"),
-                          fit: BoxFit.cover),
+                          image: AssetImage(post), fit: BoxFit.cover),
                     ),
                   ),
                 ),
@@ -334,7 +312,7 @@ class HomeScrean extends StatelessWidget {
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Text("2.6 K",
+                                Text("$like K",
                                     style: TextStyle(color: Colors.white)),
                               ],
                             ),
@@ -347,7 +325,7 @@ class HomeScrean extends StatelessWidget {
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Text("2.6 K",
+                                Text("$comment K",
                                     style: TextStyle(color: Colors.white)),
                               ],
                             ),
@@ -422,6 +400,9 @@ class HomeScrean extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Column(
                     children: [
+                      SizedBox(
+                        height: 8,
+                      ),
                       Image(
                         image: AssetImage("assets/images/line.png"),
                       ),
@@ -476,15 +457,32 @@ class HomeScrean extends StatelessWidget {
                 ),
                 SliverGrid(
                   delegate: SliverChildBuilderDelegate(
+                    childCount: 20,
                     (context, index) {
-                      return Container(
-                        color: Colors.cyan,
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 60,
+                            width: 60,
+                            decoration: BoxDecoration(
+                                color: Colors.cyan,
+                                borderRadius: BorderRadius.circular(15),
+                                image: DecorationImage(
+                                    image: AssetImage("assets/images/u1.png"))),
+                          ),
+                          Text(
+                            "Mahdi Ramezani",
+                            textAlign: TextAlign.center,
+                          )
+                        ],
                       );
                     },
                   ),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       crossAxisSpacing: 20,
+                      mainAxisExtent: 100,
                       mainAxisSpacing: 20),
                 ),
               ],
