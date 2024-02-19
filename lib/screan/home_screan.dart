@@ -359,14 +359,20 @@ class HomeScrean extends StatelessWidget {
                                   backgroundColor: Colors.transparent,
                                   context: context,
                                   builder: (context) {
-                                    return DraggableScrollableSheet(
-                                        initialChildSize: 0.4,
-                                        minChildSize: 0.2,
-                                        maxChildSize: 0.8,
-                                        builder: (context,
-                                            ScrollController controller) {
-                                          return _buttonSheet(controller);
-                                        });
+                                    return Padding(
+                                      padding: EdgeInsets.only(
+                                          bottom: MediaQuery.of(context)
+                                              .viewInsets
+                                              .bottom),
+                                      child: DraggableScrollableSheet(
+                                          initialChildSize: 0.4,
+                                          minChildSize: 0.2,
+                                          maxChildSize: 0.8,
+                                          builder: (context,
+                                              ScrollController controller) {
+                                            return _buttonSheet(controller);
+                                          }),
+                                    );
                                   },
                                 );
                               },
@@ -394,8 +400,6 @@ class HomeScrean extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
         child: Container(
-          width: 394,
-          height: 394,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15),
@@ -412,83 +416,77 @@ class HomeScrean extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: 40,
             ),
-            width: 350,
-            height: 557,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Image(
-                  image: AssetImage("assets/images/line.png"),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Share",
-                      style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),
-                    ),
-                    Icon(Icons.inbox_rounded,size: 30,color: Colors.white,),
-                  ],
-                ),
-                SizedBox(height: 10,),
-                TextField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color.fromRGBO(255, 255, 255, 0.4),
-                    contentPadding: EdgeInsets.all(2),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.white,
-                      size: 50,
-                    ),
-                    hintStyle: TextStyle(color: Colors.white),
-                    hintText: "Serach....",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(13),
-                      borderSide: BorderSide(width: 3, style: BorderStyle.none),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(13),
-                      borderSide: BorderSide(style: BorderStyle.none),
-                    ),
+            child: CustomScrollView(
+              controller: controller,
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      Image(
+                        image: AssetImage("assets/images/line.png"),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Share",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Icon(
+                            Icons.inbox_rounded,
+                            size: 30,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: const Color.fromRGBO(255, 255, 255, 0.4),
+                          contentPadding: EdgeInsets.all(2),
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                            size: 50,
+                          ),
+                          hintStyle: TextStyle(color: Colors.white),
+                          hintText: "Serach....",
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(13),
+                            borderSide:
+                                BorderSide(width: 3, style: BorderStyle.none),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(13),
+                            borderSide: BorderSide(style: BorderStyle.none),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(
-                  height: 20,
+                SliverGrid(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      return Container(
+                        color: Colors.cyan,
+                      );
+                    },
+                  ),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20),
                 ),
-                Expanded(
-                    child: CustomScrollView(
-                  controller: controller,
-                  slivers: [
-                    SliverGrid(
-                        delegate: SliverChildBuilderDelegate((context, index) {
-                          return Container(
-                            color: Colors.cyan,
-                          );
-                        }),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 20,
-                            mainAxisSpacing: 20))
-                  ],
-                )
-
-// GridView.builder(
-//                     controller: controller,
-//                     itemCount: 30,
-//                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                         crossAxisSpacing: 10,
-//                         mainAxisSpacing: 8,
-//                         crossAxisCount: 3),
-//                     itemBuilder: (BuildContext context, int index) {
-//                       return Container(
-//                         color: Colors.cyan,
-//                       );
-//                     },
-//                   ),
-
-                    )
               ],
             ),
           ),
