@@ -8,6 +8,7 @@ class HomeScrean extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<PostData> post_data = get_data_post();
+    List<Strory> story_data = get_story_list();
 
     return Container(
       color: Color(0xff1C1F2E),
@@ -27,11 +28,15 @@ class HomeScrean extends StatelessWidget {
                           height: 100,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: 10,
+                            itemCount: story_data.length,
                             itemBuilder: (context, index) {
-                              return _getYourStory(
-                                  text: "Your Story",
-                                  image: "assets/images/plus.png");
+                              return index == 0
+                                  ? _getYourStory(
+                                      text: "Story",
+                                      image: "assets/images/plus.png")
+                                  : _getYourStory(
+                                      text: "${story_data[index].username!}",
+                                      image: "${story_data[index].image!}");
                             },
                           ),
                         ),

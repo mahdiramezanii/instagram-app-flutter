@@ -102,3 +102,31 @@ List<PostData> get_data_post() {
 
   return [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11];
 }
+
+List<Strory> get_story_list() {
+  Strory s1 = Strory("assets/images/s1.png", "abbasoiu_56");
+  Strory s2 = Strory("assets/images/s2.png", "mehdai.official32");
+  Strory s3 = Strory("assets/images/s3.png", "milad_karami");
+  Strory s4 = Strory("assets/images/s4.png", "reza_dehyam");
+  Strory s5 = Strory("assets/images/s5.png", "esmaeel_kh");
+  Strory s6 = Strory("assets/images/s6.png", "sobham_mdah");
+  Strory s7 = Strory("assets/images/s7.png", "arman_jamali");
+  Strory s8 = Strory("assets/images/s8.png", "reza_karimi");
+  Strory s9 = Strory("assets/images/s9.png", "nazanin0988");
+  Strory s10 = Strory("assets/images/s10.png", "ahmad_98_gh");
+  Strory s11 = Strory("assets/images/s11.png", "rezak_d");
+
+  return [
+    s1,
+    s2,
+    s3,
+    s4,
+    s5,
+    s6,
+    s7,
+    s8,
+    s9,
+    s10,
+    s11,
+  ];
+}

@@ -1,4 +1,3 @@
-
 class PostData {
   String? user_image;
   String? post_image;
@@ -15,5 +14,14 @@ class PostData {
     required this.like,
     required this.comment,
   });
-  
+}
+
+class Strory {
+  String? image;
+  String? username;
+
+  Strory(String image, String username) {
+    this.image = image;
+    this.username = username;
+  }
 }
