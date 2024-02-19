@@ -246,9 +246,7 @@ class HomeScrean extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
-                width: 150,
-              ),
+              Spacer(),
               Icon(
                 Icons.more_vert,
                 color: Colors.white,
