@@ -5,10 +5,12 @@ import "package:instagram/controller/data.dart";
 import "package:instagram/controller/models.dart";
 
 class HomeScrean extends StatelessWidget {
+
+  List<Strory> story_data = get_story_list();
   @override
   Widget build(BuildContext context) {
     List<PostData> post_data = get_data_post();
-    List<Strory> story_data = get_story_list();
+    
 
     return Container(
       color: Color(0xff1C1F2E),
@@ -460,7 +462,7 @@ class HomeScrean extends StatelessWidget {
                 ),
                 SliverGrid(
                   delegate: SliverChildBuilderDelegate(
-                    childCount: 20,
+                    childCount: story_data.length,
                     (context, index) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -469,13 +471,15 @@ class HomeScrean extends StatelessWidget {
                             height: 60,
                             width: 60,
                             decoration: BoxDecoration(
-                                color: Colors.cyan,
-                                borderRadius: BorderRadius.circular(15),
-                                image: DecorationImage(
-                                    image: AssetImage("assets/images/u1.png"))),
+                              color: Colors.cyan,
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                image: AssetImage("${story_data[index].image}"),
+                              ),
+                            ),
                           ),
                           Text(
-                            "Mahdi Ramezani",
+                            "${story_data[index].username}",
                             textAlign: TextAlign.center,
                           )
                         ],
