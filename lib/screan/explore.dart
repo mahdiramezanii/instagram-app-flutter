@@ -47,31 +47,32 @@ class ExploreScrean extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 5),
-              height: 23,
+              margin: EdgeInsets.only(bottom: 20, top: 20),
+              height: 30,
               width: 60,
               child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      height: 23,
-                      width: 60,
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Color.fromRGBO(39, 43, 64, 1),
-                      ),
-                      child: Center(
-                          child: Padding(
-                        padding: const EdgeInsets.all(2),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    margin: EdgeInsets.only(left: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Color.fromRGBO(39, 43, 64, 1),
+                    ),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 18, vertical: 3),
                         child: Text(
-                          "Ali",
+                          "amirahmafadibi",
                           textAlign: TextAlign.center,
                           style: TextStyle(color: Colors.white),
                         ),
-                      )),
-                    );
-                  }),
+                      ),
+                    ),
+                  );
+                },
+              ),
             )
           ],
         ),
