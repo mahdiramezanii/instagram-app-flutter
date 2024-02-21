@@ -3,6 +3,7 @@ import "dart:ui";
 import "package:flutter/material.dart";
 import "package:instagram/controller/data.dart";
 import "package:instagram/controller/models.dart";
+import "package:instagram/screan/explore.dart";
 
 class HomeScrean extends StatelessWidget {
   List<Strory> story_data = get_story_list();
@@ -79,8 +80,16 @@ class HomeScrean extends StatelessWidget {
                   Image(
                     image: AssetImage("assets/images/b1.png"),
                   ),
-                  Image(
-                    image: AssetImage("assets/images/b2.png"),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return ExploreScrean();
+                      }));
+                    },
+                    child: Image(
+                      image: AssetImage("assets/images/b2.png"),
+                    ),
                   ),
                   Image(
                     image: AssetImage("assets/images/b3.png"),
@@ -497,10 +506,8 @@ class HomeScrean extends StatelessWidget {
                         mainAxisSpacing: 20,
                       ),
                     ),
-                    
-
+                    // SliverPadding(padding: EdgeInsets.fromLTRB(left, top, right, bottom))
                   ],
-                
                 ),
                 Positioned(
                   bottom: 30,
