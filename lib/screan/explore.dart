@@ -15,7 +15,7 @@ class ExploreScrean extends StatelessWidget {
               height: 46,
               decoration: BoxDecoration(
                   color: Color.fromRGBO(39, 43, 64, 1),
-                  borderRadius: BorderRadius.circular(20)),
+                  borderRadius: BorderRadius.circular(13)),
               child: Row(
                 children: [
                   SizedBox(
@@ -42,9 +42,36 @@ class ExploreScrean extends StatelessWidget {
                   Image.asset("assets/images/scan.png"),
                   SizedBox(
                     width: 10,
-                  )
+                  ),
                 ],
               ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 5),
+              height: 23,
+              width: 60,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      height: 23,
+                      width: 60,
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromRGBO(39, 43, 64, 1),
+                      ),
+                      child: Center(
+                          child: Padding(
+                        padding: const EdgeInsets.all(2),
+                        child: Text(
+                          "Ali",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      )),
+                    );
+                  }),
             )
           ],
         ),
