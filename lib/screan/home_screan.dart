@@ -5,12 +5,10 @@ import "package:instagram/controller/data.dart";
 import "package:instagram/controller/models.dart";
 
 class HomeScrean extends StatelessWidget {
-
   List<Strory> story_data = get_story_list();
   @override
   Widget build(BuildContext context) {
     List<PostData> post_data = get_data_post();
-    
 
     return Container(
       color: Color(0xff1C1F2E),
@@ -353,7 +351,8 @@ class HomeScrean extends StatelessWidget {
                                           maxChildSize: 0.8,
                                           builder: (context,
                                               ScrollController controller) {
-                                            return _buttonSheet(controller);
+                                            return _buttonSheet(
+                                                controller, context);
                                           }),
                                     );
                                   },
@@ -378,7 +377,7 @@ class HomeScrean extends StatelessWidget {
     );
   }
 
-  Widget _buttonSheet(ScrollController controller) {
+  Widget _buttonSheet(ScrollController controller, BuildContext context) {
     return ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
@@ -399,98 +398,123 @@ class HomeScrean extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: 40,
             ),
-            child: CustomScrollView(
-              controller: controller,
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Image(
-                        image: AssetImage("assets/images/line.png"),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                CustomScrollView(
+                  controller: controller,
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: Column(
                         children: [
-                          Text(
-                            "Share",
-                            style: TextStyle(
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Image(
+                            image: AssetImage("assets/images/line.png"),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Share",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Icon(
+                                Icons.inbox_rounded,
+                                size: 30,
                                 color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
-                          Icon(
-                            Icons.inbox_rounded,
-                            size: 30,
-                            color: Colors.white,
+                          SizedBox(
+                            height: 10,
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: const Color.fromRGBO(255, 255, 255, 0.4),
-                          contentPadding: EdgeInsets.all(2),
-                          prefixIcon: Icon(
-                            Icons.search,
-                            color: Colors.white,
-                            size: 50,
-                          ),
-                          hintStyle: TextStyle(color: Colors.white),
-                          hintText: "Serach....",
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(13),
-                            borderSide:
-                                BorderSide(width: 3, style: BorderStyle.none),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(13),
-                            borderSide: BorderSide(style: BorderStyle.none),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  ),
-                ),
-                SliverGrid(
-                  delegate: SliverChildBuilderDelegate(
-                    childCount: story_data.length,
-                    (context, index) {
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              color: Colors.cyan,
-                              borderRadius: BorderRadius.circular(15),
-                              image: DecorationImage(
-                                image: AssetImage("${story_data[index].image}"),
+                          TextField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor:
+                                  const Color.fromRGBO(255, 255, 255, 0.4),
+                              contentPadding: EdgeInsets.all(2),
+                              prefixIcon: Icon(
+                                Icons.search,
+                                color: Colors.white,
+                                size: 50,
+                              ),
+                              hintStyle: TextStyle(color: Colors.white),
+                              hintText: "Serach....",
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13),
+                                borderSide: BorderSide(
+                                    width: 3, style: BorderStyle.none),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13),
+                                borderSide: BorderSide(style: BorderStyle.none),
                               ),
                             ),
                           ),
-                          Text(
-                            "${story_data[index].username}",
-                            textAlign: TextAlign.center,
-                          )
+                          SizedBox(
+                            height: 20,
+                          ),
                         ],
-                      );
-                    },
+                      ),
+                    ),
+                    SliverGrid(
+                      delegate: SliverChildBuilderDelegate(
+                        childCount: story_data.length,
+                        (context, index) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 60,
+                                width: 60,
+                                decoration: BoxDecoration(
+                                  color: Colors.cyan,
+                                  borderRadius: BorderRadius.circular(15),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        "${story_data[index].image}"),
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                "${story_data[index].username}",
+                                textAlign: TextAlign.center,
+                              )
+                            ],
+                          );
+                        },
+                      ),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 20,
+                        mainAxisExtent: 100,
+                        mainAxisSpacing: 20,
+                      ),
+                    ),
+                    
+
+                  ],
+                
+                ),
+                Positioned(
+                  bottom: 30,
+                  child: ElevatedButton(
+                    style: Theme.of(context).elevatedButtonTheme.style,
+                    onPressed: () {},
+                    child: Text(
+                      "Send",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 20,
-                      mainAxisExtent: 100,
-                      mainAxisSpacing: 20),
                 ),
               ],
             ),
