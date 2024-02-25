@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/screan/login_screan.dart';
+import 'package:instagram/screan/splash_screan.dart';
 
 
 void main() {
@@ -19,7 +20,7 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginScrean(),
+      home: SplashScrean(),
     );
   }
 }

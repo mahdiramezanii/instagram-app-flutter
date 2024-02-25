@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:instagram/screan/home_screan.dart";
+import "package:instagram/screan/swich_account_screan.dart";
 
 class LoginScrean extends StatefulWidget {
   @override
@@ -184,6 +185,7 @@ class _LoginScreanState extends State<LoginScrean> {
                             MaterialPageRoute(
                               builder: (context) {
                                 return HomeScrean();
+                                // return SwichAccountScrean();
                               },
                             ),
                           );

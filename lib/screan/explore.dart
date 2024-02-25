@@ -33,7 +33,7 @@ class ExploreScrean extends StatelessWidget {
                     child: TextField(
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                          hintText: "Serach...",
+                          hintText: "Serach....",
                           hintStyle: TextStyle(color: Colors.white),
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none),
@@ -51,6 +51,7 @@ class ExploreScrean extends StatelessWidget {
               height: 30,
               width: 60,
               child: ListView.builder(
+                itemCount: 10,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
