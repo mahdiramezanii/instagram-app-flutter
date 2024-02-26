@@ -1,74 +1,81 @@
 import "package:flutter/material.dart";
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:instagram/screan/share_post_screan.dart';
 
 class ExploreScrean extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1C1F2E),
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: serchBox(),
-            ),
-            SliverToBoxAdapter(
-              child: tag_list(),
-            ),
-            SliverPadding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 10,
+        backgroundColor: Color(0xff1C1F2E),
+        body: SafeArea(
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: serchBox(),
               ),
-              sliver: content(),
-            ),
-          ],
+              SliverToBoxAdapter(
+                child: tag_list(),
+              ),
+              SliverPadding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10,
+                ),
+                sliver: content(),
+              ),
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: bottonNav()
-    );
+        bottomNavigationBar: bottonNav(context));
   }
 
-  Widget bottonNav(){
+  Widget bottonNav(BuildContext context) {
     return Container(
-        height: 83,
-        decoration: BoxDecoration(
-            color: Color.fromRGBO(39, 43, 64, 1),
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12), topRight: Radius.circular(12))),
-        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          Image(
-            image: AssetImage("assets/images/b1.png"),
-          ),
-          Image(
+      height: 83,
+      decoration: BoxDecoration(
+          color: Color.fromRGBO(39, 43, 64, 1),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12), topRight: Radius.circular(12))),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+        Image(
+          image: AssetImage("assets/images/b1.png"),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+              return SharePostScrean();
+            }));
+          },
+          child: Image(
             image: AssetImage("assets/images/b2.png"),
           ),
-          Image(
-            image: AssetImage("assets/images/b3.png"),
-          ),
-          Image(
-            image: AssetImage("assets/images/b4.png"),
-          ),
-          Container(
-            width: 26,
-            height: 26,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6), color: Colors.white),
-            child: Padding(
-              padding: const EdgeInsets.all(1),
-              child: Container(
-                width: 22,
-                height: 22,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Image(
-                  image: AssetImage("assets/images/b5.png"),
-                ),
+        ),
+        Image(
+          image: AssetImage("assets/images/b3.png"),
+        ),
+        Image(
+          image: AssetImage("assets/images/b4.png"),
+        ),
+        Container(
+          width: 26,
+          height: 26,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6), color: Colors.white),
+          child: Padding(
+            padding: const EdgeInsets.all(1),
+            child: Container(
+              width: 22,
+              height: 22,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: Image(
+                image: AssetImage("assets/images/b5.png"),
               ),
             ),
-          )
-        ]),
-      );
+          ),
+        )
+      ]),
+    );
   }
 
   Widget serchBox() {
