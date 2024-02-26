@@ -100,11 +100,19 @@ class ExploreScrean extends StatelessWidget {
                     return Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: index % 2 == 0 ? Colors.red : Colors.blue,
+                        // image: DecorationImage(
+                        //     image: AssetImage("assets/images/item$index.png"),
+                        //     fit: BoxFit.cover),
                       ),
-                      child: Center(child: Text("$index")),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: FittedBox(
+                          fit: BoxFit.cover,
+                          child: Image.asset("assets/images/item$index.png"),
+                        ),
+                      ),
                     );
-                  }, childCount: 20),
+                  }, childCount: 10),
                 ),
               ),
             )
