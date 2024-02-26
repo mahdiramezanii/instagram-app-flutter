@@ -77,30 +77,34 @@ class ExploreScrean extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: GridView.custom(
-                
-                gridDelegate: SliverQuiltedGridDelegate(
-                  crossAxisCount: 6,
-                  mainAxisSpacing: 6,
-                  crossAxisSpacing: 6,
-                  repeatPattern: QuiltedGridRepeatPattern.inverted,
-                  pattern: [
-                    QuiltedGridTile(3, 2),
-                    QuiltedGridTile(3, 4),
-
-                    QuiltedGridTile(2, 2),
-                    QuiltedGridTile(2, 2),
-                    QuiltedGridTile(2, 2),
-     
-                  ],
-                ),
-              
-                childrenDelegate: SliverChildBuilderDelegate((context, index) {
+              child: RefreshIndicator(
+                onRefresh: ()async{
+                  print("object");
+                },
+                child: GridView.custom(
                   
-                  return Container(
-                    color: index%2 == 0? Colors.red:Colors.blue,
-                  );
-                }),
+                  gridDelegate: SliverQuiltedGridDelegate(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 6,
+                    crossAxisSpacing: 6,
+                    repeatPattern: QuiltedGridRepeatPattern.inverted,
+                    pattern: [
+                      QuiltedGridTile(2, 1),
+                      QuiltedGridTile(2, 2),
+                      QuiltedGridTile(1, 1),
+                      QuiltedGridTile(1, 1),
+                      QuiltedGridTile(1, 1),
+                    ],
+                  ),
+                  
+                  childrenDelegate: SliverChildBuilderDelegate((context, index) {
+                    
+                    return Container(
+                      color: index % 2 == 0 ? Colors.red : Colors.blue,
+                    );
+                    
+                  },childCount: 20),
+                ),
               ),
             )
           ],
