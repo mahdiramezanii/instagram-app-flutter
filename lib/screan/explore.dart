@@ -92,7 +92,7 @@ class ExploreScrean extends StatelessWidget {
                 ),
                 childrenDelegate: SliverChildBuilderDelegate((context, index) {
                   return Container(
-                    color: Colors.red,
+                    color: index%2 == 0? Colors.red:Colors.blue,
                   );
                 }),
               ),
