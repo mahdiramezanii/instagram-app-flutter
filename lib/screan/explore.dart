@@ -24,7 +24,12 @@ class ExploreScrean extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
+      bottomNavigationBar: bottonNav()
+    );
+  }
+
+  Widget bottonNav(){
+    return Container(
         height: 83,
         decoration: BoxDecoration(
             color: Color.fromRGBO(39, 43, 64, 1),
@@ -34,15 +39,8 @@ class ExploreScrean extends StatelessWidget {
           Image(
             image: AssetImage("assets/images/b1.png"),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return ExploreScrean();
-              }));
-            },
-            child: Image(
-              image: AssetImage("assets/images/b2.png"),
-            ),
+          Image(
+            image: AssetImage("assets/images/b2.png"),
           ),
           Image(
             image: AssetImage("assets/images/b3.png"),
@@ -70,8 +68,7 @@ class ExploreScrean extends StatelessWidget {
             ),
           )
         ]),
-      ),
-    );
+      );
   }
 
   Widget serchBox() {
