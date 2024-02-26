@@ -78,19 +78,25 @@ class ExploreScrean extends StatelessWidget {
             ),
             Expanded(
               child: GridView.custom(
+                
                 gridDelegate: SliverQuiltedGridDelegate(
-                  crossAxisCount: 4,
-                  mainAxisSpacing: 4,
-                  crossAxisSpacing: 4,
+                  crossAxisCount: 6,
+                  mainAxisSpacing: 6,
+                  crossAxisSpacing: 6,
                   repeatPattern: QuiltedGridRepeatPattern.inverted,
                   pattern: [
+                    QuiltedGridTile(3, 2),
+                    QuiltedGridTile(3, 4),
+
                     QuiltedGridTile(2, 2),
-                    QuiltedGridTile(1, 1),
-                    QuiltedGridTile(1, 1),
-                    QuiltedGridTile(1, 2),
+                    QuiltedGridTile(2, 2),
+                    QuiltedGridTile(2, 2),
+     
                   ],
                 ),
+              
                 childrenDelegate: SliverChildBuilderDelegate((context, index) {
+                  
                   return Container(
                     color: index%2 == 0? Colors.red:Colors.blue,
                   );
