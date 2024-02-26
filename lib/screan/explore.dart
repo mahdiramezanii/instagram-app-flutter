@@ -78,15 +78,14 @@ class ExploreScrean extends StatelessWidget {
             ),
             Expanded(
               child: RefreshIndicator(
-                onRefresh: ()async{
+                onRefresh: () async {
                   print("object");
                 },
                 child: GridView.custom(
-                  
                   gridDelegate: SliverQuiltedGridDelegate(
                     crossAxisCount: 3,
-                    mainAxisSpacing: 6,
-                    crossAxisSpacing: 6,
+                    mainAxisSpacing: 4,
+                    crossAxisSpacing: 4,
                     repeatPattern: QuiltedGridRepeatPattern.inverted,
                     pattern: [
                       QuiltedGridTile(2, 1),
@@ -96,14 +95,16 @@ class ExploreScrean extends StatelessWidget {
                       QuiltedGridTile(1, 1),
                     ],
                   ),
-                  
-                  childrenDelegate: SliverChildBuilderDelegate((context, index) {
-                    
+                  childrenDelegate:
+                      SliverChildBuilderDelegate((context, index) {
                     return Container(
-                      color: index % 2 == 0 ? Colors.red : Colors.blue,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: index % 2 == 0 ? Colors.red : Colors.blue,
+                      ),
+                      child: Center(child: Text("$index")),
                     );
-                    
-                  },childCount: 20),
+                  }, childCount: 20),
                 ),
               ),
             )
