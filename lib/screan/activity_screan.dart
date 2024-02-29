@@ -5,7 +5,16 @@ class ActivityScrean extends StatefulWidget {
   State<ActivityScrean> createState() => _ActivityScreanState();
 }
 
-class _ActivityScreanState extends State<ActivityScrean> {
+class _ActivityScreanState extends State<ActivityScrean>
+    with SingleTickerProviderStateMixin {
+  TabController? _tabcontroller;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabcontroller = TabController(length: 2, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -14,8 +23,23 @@ class _ActivityScreanState extends State<ActivityScrean> {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          height: 90,
-          color: Colors.white,
+          height: 50,
+          color: Color(0xff1C1F2E),
+          child: TabBar(
+              dividerHeight: 0.0,
+            labelColor: Colors.white,
+            labelStyle: TextStyle(fontSize: 16),
+            indicatorColor: Colors.pink,
+            controller: _tabcontroller,
+            tabs: [
+              Tab(
+                text: "Following",
+              ),
+              Tab(
+                text: "You",
+              ),
+            ],
+          ),
         ),
       ),
     );
