@@ -17,30 +17,47 @@ class _ActivityScreanState extends State<ActivityScrean>
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Color(0xff1C1F2E),
       body: SafeArea(
-        child: Container(
-          width: double.infinity,
-          height: 50,
-          color: Color(0xff1C1F2E),
-          child: TabBar(
-              dividerHeight: 0.0,
-            labelColor: Colors.white,
-            labelStyle: TextStyle(fontSize: 16),
-            unselectedLabelStyle: TextStyle(color: Color.fromRGBO(197, 197, 197, 1)),
-            indicatorColor: Colors.pink,
-            controller: _tabcontroller,
-            tabs: [
-              Tab(
-                text: "Following",
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: 70,
+              color: Color(0xff1C1F2E),
+              child: TabBar(
+                dividerHeight: 0.0,
+                labelColor: Colors.white,
+                labelStyle: TextStyle(fontSize: 16),
+                unselectedLabelStyle:
+                    TextStyle(color: Color.fromRGBO(197, 197, 197, 1)),
+                indicatorColor: Colors.pink,
+                controller: _tabcontroller,
+                tabs: [
+                  Tab(
+                    text: "Following",
+                  ),
+                  Tab(
+                    text: "You",
+                  ),
+                ],
               ),
-              Tab(
-                text: "You",
+            ),
+            Expanded(
+              child: TabBarView(
+                controller: _tabcontroller,
+                children: [
+                  Container(
+                    color: Colors.grey,
+                  ),
+                  Container(
+                    color: Colors.indigo,
+                  ),
+                ],
               ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
