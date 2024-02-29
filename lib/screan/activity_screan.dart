@@ -29,6 +29,7 @@ class _ActivityScreanState extends State<ActivityScrean>
               dividerHeight: 0.0,
             labelColor: Colors.white,
             labelStyle: TextStyle(fontSize: 16),
+            
             indicatorColor: Colors.pink,
             controller: _tabcontroller,
             tabs: [
