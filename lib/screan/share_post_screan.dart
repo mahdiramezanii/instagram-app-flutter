@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SharePostScrean extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+   
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xff1C1F2E),
