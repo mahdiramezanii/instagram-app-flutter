@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/screan/login_screan.dart';
 import 'package:instagram/screan/splash_screan.dart';
 
 
