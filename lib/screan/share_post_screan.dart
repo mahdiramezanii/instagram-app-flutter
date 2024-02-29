@@ -16,10 +16,35 @@ class SharePostScrean extends StatelessWidget {
               left: 0,
               right: 0,
               child: Container(
-                height: 40,
+                height: 83,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.blue
+                  color: Color.fromRGBO(39, 43, 64, 1),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Draft",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                      Text(
+                        "Gallery",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                      Text(
+                        "Take",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -34,7 +59,7 @@ class SharePostScrean extends StatelessWidget {
       slivers: [
         SliverToBoxAdapter(
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 20,horizontal: 20),
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             child: Row(
               children: [
                 Text(
@@ -72,8 +97,7 @@ class SharePostScrean extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Container(
-            
-            margin: EdgeInsets.symmetric(vertical: 12,horizontal: 12),
+            margin: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
             width: 375,
             height: 394,
             decoration: BoxDecoration(
@@ -82,27 +106,30 @@ class SharePostScrean extends StatelessWidget {
             ),
           ),
         ),
-        SliverPadding(padding: EdgeInsets.symmetric(vertical: 12,horizontal: 12),sliver: SliverGrid(
-          delegate: SliverChildBuilderDelegate(
-            childCount: 10,
-            (context, index) {
-              return Container(
-                width: 128,
-                height: 128,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15)),
-              );
-            },
-          ),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 5,
-            mainAxisSpacing: 5,
-          ),
-        ),),
         SliverPadding(
-          padding: EdgeInsets.only(bottom: 50),
+          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+          sliver: SliverGrid(
+            delegate: SliverChildBuilderDelegate(
+              childCount: 10,
+              (context, index) {
+                return Container(
+                  width: 128,
+                  height: 128,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15)),
+                );
+              },
+            ),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
+            ),
+          ),
+        ),
+        SliverPadding(
+          padding: EdgeInsets.only(bottom: 80),
         ),
       ],
     );
