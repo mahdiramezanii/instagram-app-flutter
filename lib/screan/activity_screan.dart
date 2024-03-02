@@ -48,7 +48,12 @@ class _ActivityScreanState extends State<ActivityScrean>
               child: TabBarView(
                 controller: _tabcontroller,
                 children: [
-                  getFollowing(),
+                  Column(
+                    children: [
+                      getFollowing(),
+                      
+                    ],
+                  ),
                   Container(
                     color: Color(0xff1C1F2E),
                   ),
@@ -66,76 +71,94 @@ class _ActivityScreanState extends State<ActivityScrean>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 65, vertical: 40),
+          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 40),
           child: Text(
             'New',
             style: TextStyle(
                 color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
-        Row(
-          children: [
-            Container(
-              width: 10,
-              height: 10,
-              decoration: BoxDecoration(
-                  color: Colors.pink,
-                  borderRadius: BorderRadius.all(Radius.circular(100))),
-            ),
-            Container(
-              width: 40,
-              height: 40,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: FittedBox(
-                  child: Image(image: AssetImage("assets/images/b5.png")),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Row(
+            children: [
+              Container(
+                width: 10,
+                height: 10,
+                decoration: BoxDecoration(
+                    color: Colors.pink,
+                    borderRadius: BorderRadius.all(Radius.circular(100))),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                width: 40,
+                height: 40,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: FittedBox(
+                    child: Image(image: AssetImage("assets/images/b5.png")),
+                  ),
                 ),
               ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "amirahmadadibii",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "Started following",
-                      style: TextStyle(
-                        color: Color.fromRGBO(197, 197, 197, 1),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "you",
-                      style: TextStyle(color: Color.fromRGBO(197, 197, 197, 1),),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "3 min",
-                      style: TextStyle(color: Color.fromRGBO(197, 197, 197, 1),),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
+                      Text(
+                        "amirahmadadibii",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "Started following",
+                        style: TextStyle(
+                          color: Color.fromRGBO(197, 197, 197, 1),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "you",
+                        style: TextStyle(
+                          color: Color.fromRGBO(197, 197, 197, 1),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "3 min",
+                        style: TextStyle(
+                          color: Color.fromRGBO(197, 197, 197, 1),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Spacer(),
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ],
+          ),
         ),
       ],
     );
