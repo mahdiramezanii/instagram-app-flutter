@@ -67,7 +67,7 @@ class _ActivityScreanState extends State<ActivityScrean>
                       ),
                       SliverList(
                         delegate: SliverChildBuilderDelegate((context, index) {
-                          return getFollowing();
+                          return getFollowing(ActivityStatus.like);
                         }, childCount: 2),
                       ),
                       SliverToBoxAdapter(
@@ -85,7 +85,7 @@ class _ActivityScreanState extends State<ActivityScrean>
                       ),
                       SliverList(
                         delegate: SliverChildBuilderDelegate((context, index) {
-                          return getFollowing();
+                          return getFollowing(ActivityStatus.message);
                         }, childCount: 2),
                       ),
                       SliverToBoxAdapter(
@@ -103,13 +103,68 @@ class _ActivityScreanState extends State<ActivityScrean>
                       ),
                       SliverList(
                         delegate: SliverChildBuilderDelegate((context, index) {
-                          return getFollowing();
+                          return getFollowing(ActivityStatus.follow);
                         }, childCount: 8),
                       ),
                     ],
                   ),
-                  Container(
-                    color: Color(0xff1C1F2E),
+                  CustomScrollView(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Text(
+                            'New',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing(ActivityStatus.message);
+                        }, childCount: 2),
+                      ),
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Text(
+                            'Today',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing(ActivityStatus.like);
+                        }, childCount: 2),
+                      ),
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Text(
+                            'This week',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing(ActivityStatus.follow);
+                        }, childCount: 8),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -120,7 +175,7 @@ class _ActivityScreanState extends State<ActivityScrean>
     );
   }
 
-  Widget getFollowing() {
+  Widget getFollowing(ActivityStatus status) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -196,7 +251,7 @@ class _ActivityScreanState extends State<ActivityScrean>
                 ],
               ),
               Spacer(),
-              getRowStatus(ActivityStatus.follow),
+              getRowStatus(status),
             ],
           ),
         ),
