@@ -24,19 +24,24 @@ class ProfileScrean extends StatelessWidget {
                   ),
                 ),
                 expandedHeight: 170,
+                backgroundColor:Color(0xff1C1F2E) ,
                 actions: [],
                 flexibleSpace: FlexibleSpaceBar(
                   background: Image.asset(
-                    "assets/images/p9.jpg",
+                    "assets/images/header.png",
                     fit: BoxFit.cover,
                   ),
                 ),
+              ),
+              SliverToBoxAdapter(
+                child: _getHeader(),
+
               )
             ];
           },
           body: Container(
             color: Color(0xff1C1F2E),
-            child: _getHeader(),
+          
           ),
         ),
       ),
