@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:instagram/controller/enum_status_activity.dart";
 
 class ActivityScrean extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class ActivityScrean extends StatefulWidget {
 class _ActivityScreanState extends State<ActivityScrean>
     with SingleTickerProviderStateMixin {
   TabController? _tabcontroller;
+  ActivityStatus? status;
 
   @override
   void initState() {
@@ -176,45 +178,70 @@ class _ActivityScreanState extends State<ActivityScrean>
                 ],
               ),
               Spacer(),
-              // Container(
-              //   height: 40,
-              //   width: 40,
-              //   decoration: BoxDecoration(
-              //       color: Colors.white,
-              //       borderRadius: BorderRadius.circular(10)),
-              // ),
-
-              // ElevatedButton(
-              //   style: ElevatedButton.styleFrom(
-              //     backgroundColor: Colors.pink,
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.all(
-              //         Radius.circular(6),
-              //       ),
-              //     ),
-              //   ),
-              //   onPressed: () {},
-              //   child: Text(
-              //     "Follow",
-              //     style: TextStyle(color: Colors.white, fontSize: 12),
-              //   ),
-              // ),
-              OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  side: BorderSide(width: 1, color: Colors.white),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                ),
-                onPressed: () {},
-                child: Text(
-                  "Message",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                ),
-              )
+              getRowStatus(ActivityStatus.follow),
             ],
           ),
         ),
       ],
     );
+  }
+
+  Widget getRowStatus(ActivityStatus status) {
+    switch (status) {
+      case ActivityStatus.follow:
+        return ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.pink,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(6),
+              ),
+            ),
+          ),
+          onPressed: () {},
+          child: Text(
+            "Follow",
+            style: TextStyle(color: Colors.white, fontSize: 12),
+          ),
+        );
+      case ActivityStatus.like:
+        return Container(
+          height: 40,
+          width: 40,
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(10)),
+        );
+
+      case ActivityStatus.message:
+        return OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            side: BorderSide(width: 1, color: Colors.white),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          ),
+          onPressed: () {},
+          child: Text(
+            "Message",
+            style: TextStyle(color: Colors.white, fontSize: 12),
+          ),
+        );
+
+      default:
+        return ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.pink,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(6),
+              ),
+            ),
+          ),
+          onPressed: () {},
+          child: Text(
+            "Follow",
+            style: TextStyle(color: Colors.white, fontSize: 12),
+          ),
+        );
+    }
   }
 }
