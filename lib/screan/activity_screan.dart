@@ -53,7 +53,7 @@ class _ActivityScreanState extends State<ActivityScrean>
                       SliverToBoxAdapter(
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 50, vertical: 40),
+                              horizontal: 50, vertical: 20),
                           child: Text(
                             'New',
                             style: TextStyle(
@@ -64,12 +64,29 @@ class _ActivityScreanState extends State<ActivityScrean>
                         ),
                       ),
                       SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                          (context, index) {
-                            return getFollowing();
-                          },
-                          childCount: 2
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing();
+                        }, childCount: 2),
+                      ),
+
+
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 50, vertical: 20),
+                          child: Text(
+                            'Today',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
+                      ),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing();
+                        }, childCount: 2),
                       ),
                     ],
                   ),
@@ -90,7 +107,7 @@ class _ActivityScreanState extends State<ActivityScrean>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Row(
             children: [
               Container(
