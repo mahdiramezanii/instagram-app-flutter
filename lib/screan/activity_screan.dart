@@ -48,10 +48,46 @@ class _ActivityScreanState extends State<ActivityScrean>
               child: TabBarView(
                 controller: _tabcontroller,
                 children: [
-                  Column(
-                    children: [
-                      getFollowing(),
-                      
+                  CustomScrollView(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 50, vertical: 20),
+                          child: Text(
+                            'New',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing();
+                        }, childCount: 2),
+                      ),
+
+
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 50, vertical: 20),
+                          child: Text(
+                            'Today',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing();
+                        }, childCount: 2),
+                      ),
                     ],
                   ),
                   Container(
@@ -71,15 +107,7 @@ class _ActivityScreanState extends State<ActivityScrean>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 40),
-          child: Text(
-            'New',
-            style: TextStyle(
-                color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Row(
             children: [
               Container(
