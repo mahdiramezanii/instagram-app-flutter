@@ -10,6 +10,7 @@ class ProfileScrean extends StatelessWidget {
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
               SliverAppBar(
+                
                 bottom: PreferredSize(
                   preferredSize: Size.fromHeight(20),
                   child: Container(
@@ -24,8 +25,10 @@ class ProfileScrean extends StatelessWidget {
                   ),
                 ),
                 expandedHeight: 170,
+
+
                 backgroundColor:Color(0xff1C1F2E) ,
-                actions: [],
+                actions: [Icon(Icons.menu,color: Colors.white,)],
                 flexibleSpace: FlexibleSpaceBar(
                   background: Image.asset(
                     "assets/images/header.png",
