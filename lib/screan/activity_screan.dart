@@ -53,7 +53,7 @@ class _ActivityScreanState extends State<ActivityScrean>
                       SliverToBoxAdapter(
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 50, vertical: 20),
+                              horizontal: 20, vertical: 20),
                           child: Text(
                             'New',
                             style: TextStyle(
@@ -68,12 +68,10 @@ class _ActivityScreanState extends State<ActivityScrean>
                           return getFollowing();
                         }, childCount: 2),
                       ),
-
-
                       SliverToBoxAdapter(
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 50, vertical: 20),
+                              horizontal: 20, vertical: 20),
                           child: Text(
                             'Today',
                             style: TextStyle(
@@ -107,7 +105,7 @@ class _ActivityScreanState extends State<ActivityScrean>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 20),
           child: Row(
             children: [
               Container(
@@ -178,13 +176,41 @@ class _ActivityScreanState extends State<ActivityScrean>
                 ],
               ),
               Spacer(),
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
-              ),
+              // Container(
+              //   height: 40,
+              //   width: 40,
+              //   decoration: BoxDecoration(
+              //       color: Colors.white,
+              //       borderRadius: BorderRadius.circular(10)),
+              // ),
+
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: Colors.pink,
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.all(
+              //         Radius.circular(6),
+              //       ),
+              //     ),
+              //   ),
+              //   onPressed: () {},
+              //   child: Text(
+              //     "Follow",
+              //     style: TextStyle(color: Colors.white, fontSize: 12),
+              //   ),
+              // ),
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(width: 1, color: Colors.white),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                ),
+                onPressed: () {},
+                child: Text(
+                  "Message",
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                ),
+              )
             ],
           ),
         ),
