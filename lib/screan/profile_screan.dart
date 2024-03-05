@@ -37,7 +37,8 @@ class ProfileScrean extends StatelessWidget {
               SliverToBoxAdapter(
                 child: _getHeader(),
 
-              )
+              ),
+              SliverPersistentHeader(pinned: true,floating: true,delegate:TabBarView() )
             ];
           },
           body: Container(
@@ -98,4 +99,33 @@ class ProfileScrean extends StatelessWidget {
       ),
     );
   }
+}
+
+
+class TabBarView extends SliverPersistentHeaderDelegate{
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  
+  return Container(
+    color: Colors.red,
+  );
+  }
+
+  @override
+  // TODO: implement maxExtent
+  double get maxExtent => 400;
+
+  @override
+  // TODO: implement minExtent
+  double get minExtent =>50;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    // TODO: implement shouldRebuild
+    return true;
+  }
+
+
+
+
 }
