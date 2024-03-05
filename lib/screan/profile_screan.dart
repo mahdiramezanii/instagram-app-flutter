@@ -25,8 +25,6 @@ class ProfileScrean extends StatelessWidget {
                   ),
                 ),
                 expandedHeight: 170,
-
-
                 backgroundColor:Color(0xff1C1F2E) ,
                 actions: [Icon(Icons.menu,color: Colors.white,)],
                 flexibleSpace: FlexibleSpaceBar(
