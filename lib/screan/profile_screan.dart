@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart";
 
 class ProfileScrean extends StatelessWidget {
   @override
@@ -64,9 +65,41 @@ class ProfileScrean extends StatelessWidget {
               ];
             },
             body: TabBarView(children: [
-              Container(
-                color: Colors.red,
-                height: double.infinity,
+              CustomScrollView(
+                slivers: [
+                  SliverGrid(
+                      delegate: SliverChildBuilderDelegate((context, index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            // image: DecorationImage(
+                            //     image: AssetImage("assets/images/item$index.png"),
+                            //     fit: BoxFit.cover),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: FittedBox(
+                              fit: BoxFit.cover,
+                              child:
+                                  Image.asset("assets/images/item$index.png"),
+                            ),
+                          ),
+                        );
+                      }, childCount: 10),
+                      gridDelegate: SliverQuiltedGridDelegate(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 4,
+                        crossAxisSpacing: 4,
+                        repeatPattern: QuiltedGridRepeatPattern.inverted,
+                        pattern: [
+                          QuiltedGridTile(2, 1),
+                          QuiltedGridTile(2, 2),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                        ],
+                      ))
+                ],
               ),
               Container(
                 color: Colors.green,
@@ -140,11 +173,11 @@ class TabBarViewDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   // TODO: implement maxExtent
-  double get maxExtent => _tabbar.preferredSize.height+10;
+  double get maxExtent => _tabbar.preferredSize.height + 10;
 
   @override
   // TODO: implement minExtent
-  double get minExtent =>  _tabbar.preferredSize.height+10;
+  double get minExtent => _tabbar.preferredSize.height + 10;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
