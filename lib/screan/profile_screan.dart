@@ -6,44 +6,72 @@ class ProfileScrean extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xff1C1F2E),
       body: SafeArea(
-        child: NestedScrollView(
-          headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return [
-              SliverAppBar(
-                
-                bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(20),
-                  child: Container(
-                    height: 20,
-                    decoration: BoxDecoration(
-                      color: Color(0xff1C1F2E),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15),
+        child: DefaultTabController(
+          length: 2,
+          child: NestedScrollView(
+            headerSliverBuilder: (context, innerBoxIsScrolled) {
+              return [
+                SliverAppBar(
+                  bottom: PreferredSize(
+                    preferredSize: Size.fromHeight(20),
+                    child: Container(
+                      height: 20,
+                      decoration: BoxDecoration(
+                        color: Color(0xff1C1F2E),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                expandedHeight: 170,
-                backgroundColor:Color(0xff1C1F2E) ,
-                actions: [Icon(Icons.menu,color: Colors.white,)],
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Image.asset(
-                    "assets/images/header.png",
-                    fit: BoxFit.cover,
+                  expandedHeight: 170,
+                  backgroundColor: Color(0xff1C1F2E),
+                  actions: [
+                    Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                    )
+                  ],
+                  flexibleSpace: FlexibleSpaceBar(
+                    background: Image.asset(
+                      "assets/images/header.png",
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
+                SliverToBoxAdapter(
+                  child: _getHeader(),
+                ),
+                SliverPersistentHeader(
+                  pinned: true,
+                  floating: true,
+                  delegate: TabBarViewDelegate(
+                    TabBar(
+                      dividerColor: Colors.transparent,
+                      indicatorColor: Colors.pink,
+                      tabs: [
+                        Tab(
+                          icon: Image.asset("assets/images/image.png"),
+                        ),
+                        Tab(
+                          icon: Image.asset("assets/images/bookmark.png"),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ];
+            },
+            body: TabBarView(children: [
+              Container(
+                color: Colors.red,
+                height: double.infinity,
               ),
-              SliverToBoxAdapter(
-                child: _getHeader(),
-
+              Container(
+                color: Colors.green,
               ),
-              SliverPersistentHeader(pinned: true,floating: true,delegate:TabBarView() )
-            ];
-          },
-          body: Container(
-            color: Color(0xff1C1F2E),
-          
+            ]),
           ),
         ),
       ),
@@ -101,31 +129,26 @@ class ProfileScrean extends StatelessWidget {
   }
 }
 
-
-class TabBarView extends SliverPersistentHeaderDelegate{
+class TabBarViewDelegate extends SliverPersistentHeaderDelegate {
+  TabBarViewDelegate(this._tabbar);
+  final _tabbar;
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-  
-  return Container(
-    color: Colors.red,
-  );
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return _tabbar;
   }
 
   @override
   // TODO: implement maxExtent
-  double get maxExtent => 400;
+  double get maxExtent => _tabbar.preferredSize.height+10;
 
   @override
   // TODO: implement minExtent
-  double get minExtent =>50;
+  double get minExtent =>  _tabbar.preferredSize.height+10;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
     // TODO: implement shouldRebuild
     return false;
   }
-
-
-
-
 }
