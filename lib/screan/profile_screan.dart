@@ -101,8 +101,41 @@ class ProfileScrean extends StatelessWidget {
                       ))
                 ],
               ),
-              Container(
-                color: Colors.green,
+              CustomScrollView(
+                slivers: [
+                  SliverGrid(
+                      delegate: SliverChildBuilderDelegate((context, index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            // image: DecorationImage(
+                            //     image: AssetImage("assets/images/item$index.png"),
+                            //     fit: BoxFit.cover),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: FittedBox(
+                              fit: BoxFit.cover,
+                              child:
+                                  Image.asset("assets/images/item$index.png"),
+                            ),
+                          ),
+                        );
+                      }, childCount: 10),
+                      gridDelegate: SliverQuiltedGridDelegate(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 4,
+                        crossAxisSpacing: 4,
+                        repeatPattern: QuiltedGridRepeatPattern.inverted,
+                        pattern: [
+                          QuiltedGridTile(2, 1),
+                          QuiltedGridTile(2, 2),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                        ],
+                      ))
+                ],
               ),
             ]),
           ),
