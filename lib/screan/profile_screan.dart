@@ -147,48 +147,115 @@ class ProfileScrean extends StatelessWidget {
   Widget _getHeader() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 70,
-            height: 70,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(width: 3, color: Colors.pink),
-            ),
-            child: Image.asset("assets/images/profile.png"),
-          ),
-          SizedBox(
-            width: 15,
-          ),
-          Column(
+          Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(
+                width: 70,
+                height: 70,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(width: 3, color: Colors.pink),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: FittedBox(
+                    
+                    fit: BoxFit.cover,
+                    child: Image.asset("assets/images/mahdi.jpeg"),
+                  ),
+                ),
+              ),
               SizedBox(
-                height: 10,
+                width: 15,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "مهدی رمضانی برنامه نویس موبایل",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "Mahdiramezani.dev",
+                    style: TextStyle(
+                        color: Color.fromRGBO(197, 197, 197, 1),
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              Spacer(),
+              Image(
+                image: AssetImage("assets/images/edit.png"),
+                color: Colors.white,
+              ),
+            ],
+          ),
+          RichText(
+            textDirection: TextDirection.rtl,
+            maxLines: 5,
+            text: TextSpan(
+              text: """برنامه‌نویسی فلاتر و اندروید ، مدرس محبوب‌ترین
+دوره مـکتـبـخونـه و بـرنـامـه نـویـس سـابـق زریـن پـال
+تـخـصـص بـرنـامـه‌نـویسی یعنی اینده و تاثیر گذاری
+آموزش رایگان 👇""",
+              style: TextStyle(fontSize: 14),
+            ),
+          ),
+          Row(
+            children: [
+              Image(
+                image: AssetImage("assets/images/link.png"),
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 10,
               ),
               Text(
-                "مهدی رمضانی برنامه نویس موبایل",
+                "yek.link/Mahdiramezani.dev",
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                "Mahdiramezani.dev",
-                style: TextStyle(
-                    color: Color.fromRGBO(197, 197, 197, 1),
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold),
+                    color: Colors.blue,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w900),
               )
             ],
           ),
-          Spacer(),
-          Image(
-            image: AssetImage("assets/images/edit.png"),
-            color: Colors.white,
+          SizedBox(
+            height: 12,
           ),
+          Row(
+            children: [
+              Image(image: AssetImage("assets/images/work.png")),
+              Text(
+                "  Developer",
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                width: 13,
+              ),
+              Image(image: AssetImage("assets/images/location.png")),
+              Text(
+                "  Developer",
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          )
         ],
       ),
     );
