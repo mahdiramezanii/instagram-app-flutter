@@ -472,6 +472,7 @@ class HomeScrean extends StatelessWidget {
                         ],
                       ),
                     ),
+                   
                     SliverGrid(
                       delegate: SliverChildBuilderDelegate(
                         childCount: story_data.length,

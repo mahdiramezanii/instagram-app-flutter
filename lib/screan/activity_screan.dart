@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:instagram/controller/enum_status_activity.dart";
 
 class ActivityScrean extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class ActivityScrean extends StatefulWidget {
 class _ActivityScreanState extends State<ActivityScrean>
     with SingleTickerProviderStateMixin {
   TabController? _tabcontroller;
+  ActivityStatus? status;
 
   @override
   void initState() {
@@ -53,7 +55,7 @@ class _ActivityScreanState extends State<ActivityScrean>
                       SliverToBoxAdapter(
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 50, vertical: 20),
+                              horizontal: 20, vertical: 20),
                           child: Text(
                             'New',
                             style: TextStyle(
@@ -65,15 +67,13 @@ class _ActivityScreanState extends State<ActivityScrean>
                       ),
                       SliverList(
                         delegate: SliverChildBuilderDelegate((context, index) {
-                          return getFollowing();
+                          return getFollowing(ActivityStatus.like);
                         }, childCount: 2),
                       ),
-
-
                       SliverToBoxAdapter(
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 50, vertical: 20),
+                              horizontal: 20, vertical: 20),
                           child: Text(
                             'Today',
                             style: TextStyle(
@@ -85,13 +85,86 @@ class _ActivityScreanState extends State<ActivityScrean>
                       ),
                       SliverList(
                         delegate: SliverChildBuilderDelegate((context, index) {
-                          return getFollowing();
+                          return getFollowing(ActivityStatus.message);
                         }, childCount: 2),
+                      ),
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Text(
+                            'This week',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing(ActivityStatus.follow);
+                        }, childCount: 8),
                       ),
                     ],
                   ),
-                  Container(
-                    color: Color(0xff1C1F2E),
+                  CustomScrollView(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Text(
+                            'New',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing(ActivityStatus.message);
+                        }, childCount: 2),
+                      ),
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Text(
+                            'Today',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing(ActivityStatus.like);
+                        }, childCount: 2),
+                      ),
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Text(
+                            'This week',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate((context, index) {
+                          return getFollowing(ActivityStatus.follow);
+                        }, childCount: 8),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -102,12 +175,12 @@ class _ActivityScreanState extends State<ActivityScrean>
     );
   }
 
-  Widget getFollowing() {
+  Widget getFollowing(ActivityStatus status) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 20),
           child: Row(
             children: [
               Container(
@@ -178,17 +251,70 @@ class _ActivityScreanState extends State<ActivityScrean>
                 ],
               ),
               Spacer(),
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
-              ),
+              getRowStatus(status),
             ],
           ),
         ),
       ],
     );
+  }
+
+  Widget getRowStatus(ActivityStatus status) {
+    switch (status) {
+      case ActivityStatus.follow:
+        return ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.pink,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(6),
+              ),
+            ),
+          ),
+          onPressed: () {},
+          child: Text(
+            "Follow",
+            style: TextStyle(color: Colors.white, fontSize: 12),
+          ),
+        );
+      case ActivityStatus.like:
+        return Container(
+          height: 40,
+          width: 40,
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(10)),
+        );
+
+      case ActivityStatus.message:
+        return OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            side: BorderSide(width: 1, color: Colors.white),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          ),
+          onPressed: () {},
+          child: Text(
+            "Message",
+            style: TextStyle(color: Colors.white, fontSize: 12),
+          ),
+        );
+
+      default:
+        return ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.pink,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(6),
+              ),
+            ),
+          ),
+          onPressed: () {},
+          child: Text(
+            "Follow",
+            style: TextStyle(color: Colors.white, fontSize: 12),
+          ),
+        );
+    }
   }
 }

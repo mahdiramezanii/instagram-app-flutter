@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/screan/activity_screan.dart';
+import 'package:instagram/screan/button_navigation.dart';
+import 'package:instagram/screan/profile_screan.dart';
 import 'package:instagram/screan/splash_screan.dart';
 
 void main() {
@@ -18,7 +20,8 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: ActivityScrean(),
+      home: ButtonNavigationScrean(),
+      
     );
   }
 }
