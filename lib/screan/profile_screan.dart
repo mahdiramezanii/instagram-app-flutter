@@ -163,7 +163,6 @@ class ProfileScrean extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: FittedBox(
-                    
                     fit: BoxFit.cover,
                     child: Image.asset("assets/images/mahdi.jpeg"),
                   ),
@@ -200,6 +199,9 @@ class ProfileScrean extends StatelessWidget {
                 color: Colors.white,
               ),
             ],
+          ),
+          SizedBox(
+            height: 12,
           ),
           RichText(
             textDirection: TextDirection.rtl,
@@ -253,6 +255,62 @@ class ProfileScrean extends StatelessWidget {
                     color: Colors.grey,
                     fontSize: 15,
                     fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(height: 15,),
+          Row(
+            children: [
+              Text(
+                "23",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                "Posts",
+                style: TextStyle(color: Colors.grey),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "16.3K",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                "Followers",
+                style: TextStyle(color: Colors.grey),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "23",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                "Following",
+                style: TextStyle(color: Colors.grey),
+              ),
+              SizedBox(
+                width: 10,
               ),
             ],
           )
