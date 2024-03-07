@@ -6,6 +6,7 @@ class SharePostScrean extends StatelessWidget {
    
     return SafeArea(
       child: Scaffold(
+        extendBody: true,
         backgroundColor: Color(0xff1C1F2E),
         body: Stack(
           alignment: AlignmentDirectional.bottomCenter,
