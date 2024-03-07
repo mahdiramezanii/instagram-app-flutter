@@ -258,7 +258,9 @@ class ProfileScrean extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 15,
+          ),
           Row(
             children: [
               Text(
@@ -313,7 +315,38 @@ class ProfileScrean extends StatelessWidget {
                 width: 10,
               ),
             ],
-          )
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+            
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(160, 46),
+                ),
+                onPressed: () {},
+                child: Text(
+                  "Follow",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  minimumSize: Size(160, 46)
+                ),
+                  onPressed: () {},
+                  child: Text(
+                    "Message",
+                    style: TextStyle(color: Colors.white),
+                  ))
+            ],
+          ),
+          SizedBox(height: 15,)
         ],
       ),
     );
