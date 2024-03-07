@@ -42,7 +42,7 @@ class ProfileScrean extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: _getHeader(),
+                  child: _getHeader(context),
                 ),
                 SliverPersistentHeader(
                   pinned: true,
@@ -144,7 +144,7 @@ class ProfileScrean extends StatelessWidget {
     );
   }
 
-  Widget _getHeader() {
+  Widget _getHeader(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
@@ -322,7 +322,6 @@ class ProfileScrean extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-            
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(160, 46),
@@ -336,9 +335,7 @@ class ProfileScrean extends StatelessWidget {
                 ),
               ),
               OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  minimumSize: Size(160, 46)
-                ),
+                  style: OutlinedButton.styleFrom(minimumSize: Size(160, 46)),
                   onPressed: () {},
                   child: Text(
                     "Message",
@@ -346,7 +343,33 @@ class ProfileScrean extends StatelessWidget {
                   ))
             ],
           ),
-          SizedBox(height: 15,)
+          SizedBox(
+            height: 15,
+          ),
+          SizedBox(
+            height: 100,
+            width: double.infinity,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 5, left: 5),
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(15)),
+                    ),
+                    Text("Mahdi",style: TextStyle(color: Colors.white),)
+                  ],
+                );
+              },
+            ),
+          )
         ],
       ),
     );
