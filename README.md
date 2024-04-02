@@ -4,7 +4,7 @@
 
 # Instagram-Like-Social-Network
 
-![Instagram-Like-Social-Network](https://raw.githubusercontent.com/mahdiramazani/instagram-app-flutter/master/assets/images/readme.png)
+![Instagram-Like-Social-Network](https://github.com/mahdiramezanii/instagram-app-flutter)
 
 ## توضیحات
 
