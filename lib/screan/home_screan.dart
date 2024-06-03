@@ -66,59 +66,7 @@ class HomeScrean extends StatelessWidget {
               ],
             ),
           ),
-          bottomNavigationBar: Container(
-            width: double.infinity,
-            height: 83,
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(39, 43, 64, 1),
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(15)),
-            ),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Image(
-                    image: AssetImage("assets/images/b1.png"),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return ExploreScrean();
-                      }));
-                    },
-                    child: Image(
-                      image: AssetImage("assets/images/b2.png"),
-                    ),
-                  ),
-                  Image(
-                    image: AssetImage("assets/images/b3.png"),
-                  ),
-                  Image(
-                    image: AssetImage("assets/images/b4.png"),
-                  ),
-                  Container(
-                    width: 26,
-                    height: 26,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(6),
-                        color: Colors.white),
-                    child: Padding(
-                      padding: const EdgeInsets.all(1),
-                      child: Container(
-                        width: 22,
-                        height: 22,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: Image(
-                          image: AssetImage("assets/images/b5.png"),
-                        ),
-                      ),
-                    ),
-                  )
-                ]),
-          ),
+          
         ),
       ),
     );
@@ -472,7 +420,7 @@ class HomeScrean extends StatelessWidget {
                         ],
                       ),
                     ),
-                   
+
                     SliverGrid(
                       delegate: SliverChildBuilderDelegate(
                         childCount: story_data.length,
